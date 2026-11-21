@@ -1,22 +1,130 @@
 [
   {
     "site": "wallapop",
-    "search_query": "iphone 13",
-    "latitude": "41.9028",
-    "longitude": "12.4964",
-    "max_distance": "50",
+    "search_query": "notebook",
+    "latitude": "41.909583",
+    "longitude": "12.562639",
+    "max_distance": "40",
     "condition": "all",
-    "min_price": "100",
-    "max_price": "400",
-    "title_exclude": ["funda", "cover", "vetro"]
+    "min_price": "15",
+    "max_price": "100",
+    "title_exclude": ["cerco", "cercasi", "scambio", "custodia", "borsa", "zaino", "sleeve", "cover", "caricabatterie", "caricatore", "alimentatore", "supporto", "stand per", "tablet", "ipad", "cavo", "adattatore", "ventola", "dock", "cooling", "raffreddamento", "condizionatore", "climatizzatore", "ventilatore", "lavatrice", "frigo", "radio", "altoparlante", "speaker", "proiettore", "lampada", "power bank", "powerbank", "stampante", "scheda madre", "cerniere", "bagno", "wc", "aspirapolvere", "fotocopiatrice", "ps4", "ps5", "console", "monitor", "desktop", "pc fisso", "fisso", "all in one", "quaderno", "quaderni", "taccuino", "taccuini", "agenda", "diario", "diari", "block notes", "blocco", "moleskine", "journal", "bullet", "sketchbook", "album", "libro", "libri", "penna", "penne", "matite", "cartoleria", "planner", "rubrica", "fogli", "pagine", "quadretti", "righe"],
+    "title_must_include": ["notebook", "portatile", "laptop", "macbook", "thinkpad", "chromebook"]
   },
   {
-    "site": "vinted",
-    "vinted_domain": "it",
-    "search_query": "iphone 13",
+    "site": "wallapop",
+    "search_query": "portatile pc",
+    "latitude": "41.909583",
+    "longitude": "12.562639",
+    "max_distance": "40",
     "condition": "all",
-    "min_price": "100",
-    "max_price": "400",
-    "title_exclude": ["custodia", "cover"]
+    "min_price": "15",
+    "max_price": "100",
+    "title_exclude": ["cerco", "cercasi", "scambio", "custodia", "borsa", "zaino", "sleeve", "cover", "caricabatterie", "caricatore", "alimentatore", "supporto", "stand per", "tablet", "ipad", "cavo", "adattatore", "ventola", "dock", "cooling", "raffreddamento", "condizionatore", "climatizzatore", "ventilatore", "lavatrice", "frigo", "radio", "altoparlante", "speaker", "proiettore", "lampada", "power bank", "powerbank", "stampante", "scheda madre", "cerniere", "bagno", "wc", "aspirapolvere", "fotocopiatrice", "ps4", "ps5", "console", "monitor", "desktop", "pc fisso", "fisso", "all in one", "quaderno", "quaderni", "taccuino", "taccuini", "agenda", "diario", "diari", "block notes", "blocco", "moleskine", "journal", "bullet", "sketchbook", "album", "libro", "libri", "penna", "penne", "matite", "cartoleria", "planner", "rubrica", "fogli", "pagine", "quadretti", "righe"],
+    "title_must_include": ["portatile", "notebook", "laptop", "macbook", "thinkpad", "chromebook"]
+  },
+  {
+    "site": "wallapop",
+    "search_query": "scrivania",
+    "latitude": "41.909583",
+    "longitude": "12.562639",
+    "max_distance": "15",
+    "condition": "all",
+    "min_price": "5",
+    "max_price": "100",
+    "title_exclude": ["cerco", "cercasi", "scambio", "lampada", "organizer", "supporto", "tappetino", "bambini", "bambino", "bimbi", "giocattolo", "miniatura", "specchio", "toeletta", "solo gambe", "solo piano", "gambe per", "piano per", "mensola", "tavolo da pranzo", "tavolo da cucina", "salotto", "pranzo", "cucina", "giardino", "ping pong", "da disegno", "fasciatoio", "penna", "penne", "portapenne", "cancelleria", "cartoleria", "accessori", "calendario", "evidenziator", "pennarell", "matite"],
+    "title_must_include": ["scrivania", "scrivanie", "standing desk"]
+  },
+  {
+    "site": "wallapop",
+    "search_query": "sedia ufficio",
+    "latitude": "41.909583",
+    "longitude": "12.562639",
+    "max_distance": "15",
+    "condition": "all",
+    "min_price": "3",
+    "max_price": "20",
+    "title_exclude": ["cerco", "cercasi", "scambio", "sgabello", "sgabelli", "seggiolone", "bambini", "bambino", "bimbi", "pranzo", "cucina", "sala", "giardino", "dondolo", "rotelle per", "ruote per", "set ruote", "ricambio", "ricambi", "cuscino", "tappetino", "copri", "rivestimento", "pistone", "poltrona relax", "sdraio", "pouf", "regista", "carrozzina", "passeggino", "seggiolino", "dentista", "parrucchiere", "barbiere", "trucco"],
+    "description_exclude": ["senza ruote", "senza rotelle", "ruote mancanti", "rotelle mancanti", "mancano", "manca", "rotta", "rotto", "rotte", "da riparare", "non funziona", "non si alza", "pistone rotto", "cedimento"],
+    "title_must_include": ["sedia", "sedie", "poltrona", "poltroncina"]
+  },
+  {
+    "site": "wallapop",
+    "search_query": "sedia gaming",
+    "latitude": "41.909583",
+    "longitude": "12.562639",
+    "max_distance": "15",
+    "condition": "all",
+    "min_price": "3",
+    "max_price": "20",
+    "title_exclude": ["cerco", "cercasi", "scambio", "sgabello", "sgabelli", "seggiolone", "bambini", "bambino", "bimbi", "pranzo", "cucina", "sala", "giardino", "dondolo", "rotelle per", "ruote per", "set ruote", "ricambio", "ricambi", "cuscino", "tappetino", "copri", "rivestimento", "pistone", "poltrona relax", "sdraio", "pouf", "regista", "carrozzina", "passeggino", "seggiolino", "dentista", "parrucchiere", "barbiere", "trucco"],
+    "description_exclude": ["senza ruote", "senza rotelle", "ruote mancanti", "rotelle mancanti", "mancano", "manca", "rotta", "rotto", "rotte", "da riparare", "non funziona", "non si alza", "pistone rotto", "cedimento"],
+    "title_must_include": ["sedia", "sedie", "poltrona", "poltroncina"]
+  },
+  {
+    "id": "li_setter_world",
+    "site": "linkedin",
+    "search_query": "appointment setter",
+    "location": "Worldwide",
+    "every_min": "30",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "li_inbound_world",
+    "site": "linkedin",
+    "search_query": "inbound sales representative",
+    "location": "Worldwide",
+    "every_min": "30",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "li_setter_eu",
+    "site": "linkedin",
+    "search_query": "appointment setter",
+    "location": "European Union",
+    "every_min": "30",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "li_inbound_eu",
+    "site": "linkedin",
+    "search_query": "inbound sales representative",
+    "location": "European Union",
+    "every_min": "30",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "in_setter_us",
+    "site": "indeed",
+    "search_query": "remote appointment setter",
+    "location": "Remote",
+    "every_min": "30",
+    "indeed_domain": "www",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "in_inbound_us",
+    "site": "indeed",
+    "search_query": "remote inbound sales representative",
+    "location": "Remote",
+    "every_min": "30",
+    "indeed_domain": "www",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+  },
+  {
+    "id": "in_setter_uk",
+    "site": "indeed",
+    "search_query": "remote appointment setter",
+    "location": "Remote",
+    "every_min": "30",
+    "indeed_domain": "uk",
+    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
+    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
   }
 ]

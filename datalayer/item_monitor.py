@@ -68,7 +68,12 @@ class ItemMonitor:
             site=d.get('site', 'wallapop'),
             vinted_domain=d.get('vinted_domain', 'es'),
             province=d.get('province', ''),
-        )
+        )._jobs(d)
+
+    def _jobs(self, d):
+        self.indeed_domain = d.get('indeed_domain', 'www')
+        self.remote = d.get('remote', True)
+        return self
 
     def has_coords(self):
         return self.latitude is not None and self.longitude is not None

@@ -1,6 +1,6 @@
 """One place that knows which client handles which site."""
 
-SITES = {"wallapop": "Wallapop", "vinted": "Vinted", "milanuncios": "Milanuncios"}
+SITES = {"wallapop": "Wallapop", "vinted": "Vinted", "milanuncios": "Milanuncios", "linkedin": "LinkedIn", "indeed": "Indeed"}
 
 
 def make_client(item):
@@ -8,6 +8,12 @@ def make_client(item):
     if site == 'vinted':
         from managers.vinted_client import VintedClient
         return VintedClient(item.vinted_domain)
+    if site == 'linkedin':
+        from managers.jobs_client import LinkedInClient
+        return LinkedInClient()
+    if site == 'indeed':
+        from managers.jobs_client import IndeedClient
+        return IndeedClient(getattr(item, 'indeed_domain', 'www') or 'www')
     if site == 'milanuncios':
         from managers.milanuncios_client import MilanunciosClient
         return MilanunciosClient()

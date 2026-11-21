@@ -40,6 +40,15 @@ class TelegramManager:
 
     def send_listing(self, listing, search_name=None):
         e = html.escape
+        if getattr(listing, 'site', '') in ('linkedin', 'indeed'):
+            board = 'LinkedIn' if listing.site == 'linkedin' else 'Indeed'
+            text = (f"💼 <b>{e(listing.title)}</b>\n{e(listing.location or '')}\n"
+                    + (f"{e(listing.description[:300])}\n" if listing.description else "")
+                    + f'<a href="{listing.url}">Open on {board}</a>')
+            if search_name:
+                text = f"🔎 <i>{e(search_name)}</i>\n" + text
+            self._post('sendMessage', {'text': text, 'parse_mode': 'HTML', 'disable_web_page_preview': True})
+            return
         price = listing.formatted_price or (f"{listing.price:g} {listing.currency}" if listing.price is not None else "?")
         shipping = ""
         if listing.allows_shipping is not None:

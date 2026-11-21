@@ -8,7 +8,9 @@ import json
 import logging
 import os
 import sys
+import time
 
+from managers.geocode import geocode
 from managers.sources import make_client
 from managers.telegram_manager import TelegramManager
 from managers.worker import Worker
@@ -22,16 +24,65 @@ def load_searches():
         return json.load(f)
 
 
+def resolve_locations(searches):
+    """Wallapop wants coordinates. If a search has a place name ("location") but no coordinates,
+    look the place up once (OpenStreetMap) and remember it in data/geo.json."""
+    path = os.path.join('data', 'geo.json')
+    try:
+        with open(path, encoding='utf-8') as f:
+            cache = json.load(f)
+    except (OSError, ValueError):
+        cache = {}
+    for s in searches:
+        place = str(s.get('location', '')).strip()
+        if s.get('site', 'wallapop') != 'wallapop' or not place or s.get('latitude'):
+            continue
+        if place not in cache:
+            try:
+                lat, lng, label = geocode(place)
+                cache[place] = [lat, lng, label]
+                logging.info(f'Location "{place}" -> {lat}, {lng} ({label})')
+            except Exception as e:
+                logging.error(f'Could not find location "{place}": {e}. Searching without a location.')
+                continue
+        s['latitude'], s['longitude'] = str(cache[place][0]), str(cache[place][1])
+    os.makedirs('data', exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(cache, f)
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format='%(levelname)s %(message)s')
     for noisy in ("httpx", "urllib3"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
 
     searches = [s for s in load_searches() if s.get('enabled', True)]
+    resolve_locations(searches)
     token, channel = os.environ.get('TELEGRAM_TOKEN'), os.environ.get('TELEGRAM_CHANNEL')
     telegram = TelegramManager(token, channel) if token and channel else None
     if not telegram:
         logging.warning("No Telegram settings found: alerts will only appear in this log.")
+
+    # Optional "every_min" per search (e.g. job boards every 30 min instead of every run).
+    stamp_path = os.path.join('data', 'last_run.json')
+    try:
+        with open(stamp_path, encoding='utf-8') as f:
+            stamps = json.load(f)
+    except (OSError, ValueError):
+        stamps = {}
+    now = time.time()
+    due = []
+    for s in searches:
+        key = s.get('id') or f"{s.get('site')}:{s.get('search_query')}"
+        every = float(s.get('every_min', 0) or 0) * 60
+        if every and now - stamps.get(key, 0) < every - 60:
+            continue
+        stamps[key] = now
+        due.append(s)
+    os.makedirs('data', exist_ok=True)
+    with open(stamp_path, 'w', encoding='utf-8') as f:
+        json.dump(stamps, f)
+    searches = due
 
     failures = 0
     for s in searches:
