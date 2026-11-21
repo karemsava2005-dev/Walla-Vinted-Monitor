@@ -41,12 +41,16 @@ class VintedClient:
             'Referer': self.base + '/',
         })
         self._has_cookie = False
+        self._token = ''
+        self._anon_id = ''
         self.location_applied = True
 
     def _get_cookie(self):
         r = self._session.get(self.base + '/', headers={'Accept': 'text/html'}, timeout=20)
         if r.status_code >= 400:
             raise VintedError(f"Vinted refused the connection (HTTP {r.status_code})")
+        self._anon_id = r.headers.get('x-anon-id') or r.headers.get('X-Anon-Id') or ''
+        self._token = self._session.cookies.get('access_token_web') or ''
         self._has_cookie = True
 
     def build_params(self, item):
@@ -59,37 +63,93 @@ class VintedClient:
         if item.min_price or item.max_price:
             params.append(('currency', 'EUR'))
         for sid in STATUS_IDS.get(item.condition, []):
-            params.append(('status_ids[]', str(sid)))
-        return params
+            params.append(('attribute_ids[status]', str(sid)))
+        return params  # empty values are never sent: the new API answers 400 to blank ones
+
+    # ---- new catalogue API (Vinted retired /api/v2/catalog/items and now answers 404) ----
+    def _search_api(self, item):
+        url = f"https://api.vinted.{self.domain}/svc-catalogue/items"
+        headers = {'Origin': self.base, 'Referer': self.base + '/'}
+        if self._token:
+            headers['Authorization'] = f'Bearer {self._token}'
+        if self._anon_id:
+            headers['x-anon-id'] = self._anon_id
+        r = self._session.get(url, params=self.build_params(item), headers=headers, timeout=20)
+        if r.status_code in (401, 403):
+            self._session.cookies.clear()
+            self._get_cookie()
+            raise VintedError(f"HTTP {r.status_code}")
+        if r.status_code >= 400:
+            raise VintedError(f"HTTP {r.status_code}: {r.text[:200]}")
+        data = r.json()
+        items = data.get('items')
+        if items is None and isinstance(data.get('data'), dict):
+            items = data['data'].get('items')
+        if not isinstance(items, list):
+            raise VintedError("Unexpected reply from Vinted (keys: %s)" % list(data)[:8])
+        return [l for l in (self._parse(i) for i in items) if l]
+
+    # ---- fallback: read the public catalogue web page (embedded ld+json list) ----
+    def _search_page(self, item):
+        import json as _json
+        import re
+        from urllib.parse import urlencode
+        q = {'search_text': item.search_query, 'order': 'newest_first'}
+        if item.min_price:
+            q['price_from'] = item.min_price
+        if item.max_price:
+            q['price_to'] = item.max_price
+        r = self._session.get(f"{self.base}/catalog?{urlencode(q)}", headers={'Accept': 'text/html'}, timeout=25)
+        if r.status_code >= 400:
+            raise VintedError(f"HTTP {r.status_code} on the catalogue page")
+        out = []
+        for block in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', r.text, re.S):
+            try:
+                data = _json.loads(block)
+            except ValueError:
+                continue
+            for d in (data if isinstance(data, list) else [data]):
+                elements = d.get('itemListElement') if isinstance(d, dict) else None
+                for el in elements or []:
+                    it = el.get('item', el) if isinstance(el, dict) else {}
+                    url = it.get('url') or ''
+                    m = re.search(r'/items/(\d+)', url)
+                    if not m:
+                        continue
+                    offer = it.get('offers') or {}
+                    if isinstance(offer, list):
+                        offer = offer[0] if offer else {}
+                    try:
+                        price = float(offer.get('price'))
+                    except (TypeError, ValueError):
+                        price = None
+                    img = it.get('image')
+                    img = img[0] if isinstance(img, list) and img else img
+                    out.append(Listing(
+                        id=f"v{m.group(1)}", title=it.get('name'), description=it.get('description') or '',
+                        price=price, currency=offer.get('priceCurrency') or 'EUR',
+                        location=f"Vinted {self.domain.upper()}", allows_shipping=True, slug=m.group(1),
+                        image_url=img if isinstance(img, str) else None, url=url, site='vinted'))
+        if not out:
+            raise VintedError("No listings found on the catalogue page")
+        return out
 
     def search(self, item):
         if not self._has_cookie:
             self._get_cookie()
-        url = self.base + '/api/v2/catalog/items'
-        params = self.build_params(item)
-        data = None
-        for attempt in range(3):
+        last = None
+        for attempt in range(2):
             try:
-                r = self._session.get(url, params=params, timeout=20)
-                if r.status_code in (401, 403):
-                    self.logger.info("Vinted session expired, getting a new one")
-                    self._session.cookies.clear()
-                    self._get_cookie()
-                    raise VintedError(f"HTTP {r.status_code}")
-                if r.status_code == 429:
-                    raise VintedError("Vinted says too many requests - raise the check interval")
-                r.raise_for_status()
-                data = r.json()
-                break
+                return self._search_api(item)
             except (requests.RequestException, ValueError, VintedError) as e:
-                self.logger.warning(f"Vinted request failed ({e}), retry {attempt + 1}/3")
-                time.sleep(3 * (attempt + 1))
-        if data is None:
-            raise VintedError("Couldn't get results from Vinted (it may be blocking automated requests)")
-        items = data.get('items')
-        if not isinstance(items, list):
-            raise VintedError("Unexpected reply from Vinted (the API may have changed)")
-        return [l for l in (self._parse(i) for i in items) if l]
+                last = e
+                self.logger.warning(f"Vinted API failed ({e}), retry {attempt + 1}/2")
+                time.sleep(2 * (attempt + 1))
+        try:
+            self.logger.warning("Vinted API unavailable, trying the catalogue web page instead")
+            return self._search_page(item)
+        except (requests.RequestException, ValueError, VintedError) as e:
+            raise VintedError(f"Couldn't get results from Vinted: API said \"{last}\", page said \"{e}\"")
 
     def _parse(self, it):
         if not it.get('id') or it.get('title') is None:
