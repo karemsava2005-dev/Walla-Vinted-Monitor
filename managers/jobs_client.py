@@ -19,6 +19,29 @@ class JobsError(Exception):
     pass
 
 
+def _word_in(words, text):
+    return any(re.search(r'(?<![a-z])' + re.escape(w) + r'(?![a-z])', text) for w in words)
+
+
+def region_filter(item, listings, logger):
+    """Keep only jobs whose location/title fits the wanted regions.
+    region_exclude: dropped if the location or title mentions any of these (e.g. india, "us only").
+    region_include: if set, the location must mention one of these (e.g. europe, united kingdom)."""
+    inc, exc = getattr(item, 'region_include', []), getattr(item, 'region_exclude', [])
+    out = []
+    for l in listings:
+        loc = (l.location or '').lower()
+        title = (l.title or '').lower()
+        if exc and (_word_in(exc, loc) or _word_in(exc, title)):
+            logger.info(f"excluded (region): {l.title} | {l.location}")
+            continue
+        if inc and not _word_in(inc, loc):
+            logger.info(f"excluded (not an allowed region): {l.title} | {l.location}")
+            continue
+        out.append(l)
+    return out
+
+
 def _clean(s):
     return html.unescape(re.sub(r'<[^>]+>', '', s or '')).strip()
 
@@ -41,7 +64,7 @@ class LinkedInClient:
         for attempt in range(3):
             r = self.s.get(f"{self.URL}?{urlencode(p)}", timeout=20)
             if r.status_code == 200:
-                return self._parse(r.text)
+                return region_filter(item, self._parse(r.text), self.logger)
             last = r.status_code
             time.sleep(3 * (attempt + 1))
         raise JobsError(f"LinkedIn answered HTTP {last} (429 = too many requests, 999 = blocked)")
@@ -97,7 +120,37 @@ class IndeedClient:
                                description=_clean(j.get('snippet')), price=None, currency='',
                                location=" · ".join(x for x in (j.get('company'), j.get('formattedLocation')) if x),
                                allows_shipping=None, slug=key, url=f"{self.base}/viewjob?jk={key}", site='indeed'))
-        return out
+        return region_filter(item, out, self.logger)
+
+    def fetch_description(self, listing):
+        return listing.description
+
+    def close(self):
+        self.s.close()
+
+
+class RemotiveClient:
+    """Remotive's free public API. It shows each job's allowed candidate location, so region filtering
+    is reliable here. Remotive asks API users to call it only a few times a day: keep every_min >= 360."""
+    URL = "https://remotive.com/api/remote-jobs"
+
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+        self.s = requests.Session()
+        self.s.headers.update({'User-Agent': UA})
+
+    def search(self, item):
+        r = self.s.get(self.URL, params={'category': 'sales-business', 'search': item.search_query, 'limit': 100}, timeout=25)
+        if r.status_code != 200:
+            raise JobsError(f"Remotive answered HTTP {r.status_code}")
+        out = []
+        for j in r.json().get('jobs', []):
+            loc = j.get('candidate_required_location') or ''
+            out.append(Listing(id=f"rm{j.get('id')}", title=j.get('title') or '',
+                               description=_clean(j.get('description'))[:400], price=None, currency='',
+                               location=" · ".join(x for x in (j.get('company_name'), loc) if x),
+                               allows_shipping=None, slug=str(j.get('id')), url=j.get('url'), site='remotive'))
+        return region_filter(item, out, self.logger)
 
     def fetch_description(self, listing):
         return listing.description

@@ -40,8 +40,8 @@ class TelegramManager:
 
     def send_listing(self, listing, search_name=None):
         e = html.escape
-        if getattr(listing, 'site', '') in ('linkedin', 'indeed'):
-            board = 'LinkedIn' if listing.site == 'linkedin' else 'Indeed'
+        if getattr(listing, 'site', '') in ('linkedin', 'indeed', 'remotive'):
+            board = {'linkedin': 'LinkedIn', 'indeed': 'Indeed', 'remotive': 'Remotive'}[listing.site]
             text = (f"💼 <b>{e(listing.title)}</b>\n{e(listing.location or '')}\n"
                     + (f"{e(listing.description[:300])}\n" if listing.description else "")
                     + f'<a href="{listing.url}">Open on {board}</a>')

@@ -73,6 +73,8 @@ class ItemMonitor:
     def _jobs(self, d):
         self.indeed_domain = d.get('indeed_domain', 'www')
         self.remote = d.get('remote', True)
+        self.region_include = [w.lower() for w in d.get('region_include', [])]
+        self.region_exclude = [w.lower() for w in d.get('region_exclude', [])]
         return self
 
     def has_coords(self):

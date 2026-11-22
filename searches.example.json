@@ -62,69 +62,114 @@
     "title_must_include": ["sedia", "sedie", "poltrona", "poltroncina"]
   },
   {
-    "id": "li_setter_world",
-    "site": "linkedin",
-    "search_query": "appointment setter",
-    "location": "Worldwide",
-    "every_min": "30",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
-  },
-  {
-    "id": "li_inbound_world",
-    "site": "linkedin",
-    "search_query": "inbound sales representative",
-    "location": "Worldwide",
-    "every_min": "30",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
-  },
-  {
     "id": "li_setter_eu",
     "site": "linkedin",
-    "search_query": "appointment setter",
+    "search_query": "inbound appointment setter",
     "location": "European Union",
     "every_min": "30",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
   },
   {
-    "id": "li_inbound_eu",
+    "id": "li_setter_uk",
+    "site": "linkedin",
+    "search_query": "inbound appointment setter",
+    "location": "United Kingdom",
+    "every_min": "30",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
+  },
+  {
+    "id": "li_rep_eu",
     "site": "linkedin",
     "search_query": "inbound sales representative",
     "location": "European Union",
     "every_min": "30",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
   },
   {
-    "id": "in_setter_us",
-    "site": "indeed",
-    "search_query": "remote appointment setter",
-    "location": "Remote",
+    "id": "li_rep_uk",
+    "site": "linkedin",
+    "search_query": "inbound sales representative",
+    "location": "United Kingdom",
     "every_min": "30",
-    "indeed_domain": "www",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
   },
   {
-    "id": "in_inbound_us",
-    "site": "indeed",
-    "search_query": "remote inbound sales representative",
-    "location": "Remote",
+    "id": "li_sdr_eu",
+    "site": "linkedin",
+    "search_query": "inbound sales development representative",
+    "location": "European Union",
     "every_min": "30",
-    "indeed_domain": "www",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
   },
   {
-    "id": "in_setter_uk",
-    "site": "indeed",
-    "search_query": "remote appointment setter",
-    "location": "Remote",
+    "id": "li_sdr_uk",
+    "site": "linkedin",
+    "search_query": "inbound sales development representative",
+    "location": "United Kingdom",
     "every_min": "30",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
+  },
+  {
+    "id": "li_closer_eu",
+    "site": "linkedin",
+    "search_query": "inbound closer",
+    "location": "European Union",
+    "every_min": "30",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
+  },
+  {
+    "id": "li_closer_uk",
+    "site": "linkedin",
+    "search_query": "inbound closer",
+    "location": "United Kingdom",
+    "every_min": "30",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
+  },
+  {
+    "id": "rm_inbound",
+    "site": "remotive",
+    "search_query": "inbound",
+    "every_min": "360",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"],
+    "region_include": ["europe", "european union", "emea", "united kingdom", "uk", "england", "london", "ireland", "italy", "italia", "spain", "españa", "portugal", "france", "germany", "netherlands", "belgium", "austria", "switzerland", "poland", "sweden", "denmark", "norway", "finland", "greece", "czechia", "romania", "worldwide", "anywhere", "remote", "global"]
+  },
+  {
+    "id": "rm_setter",
+    "site": "remotive",
+    "search_query": "appointment setter",
+    "every_min": "360",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"],
+    "region_include": ["europe", "european union", "emea", "united kingdom", "uk", "england", "london", "ireland", "italy", "italia", "spain", "españa", "portugal", "france", "germany", "netherlands", "belgium", "austria", "switzerland", "poland", "sweden", "denmark", "norway", "finland", "greece", "czechia", "romania", "worldwide", "anywhere", "remote", "global"]
+  },
+  {
+    "id": "in_inbound_uk",
+    "site": "indeed",
+    "search_query": "remote inbound sales",
+    "location": "Remote",
     "indeed_domain": "uk",
-    "title_must_include": ["setter", "appointment", "inbound", "sales", "sdr", "bdr", "closer", "business development", "lead"],
-    "title_exclude": ["senior", "sr.", "manager", "director", "head of", "vp ", "vice president", "lead generation manager", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid"]
+    "every_min": "30",
+    "title_must_include": ["setter", "inbound", "sales", "sdr", "bdr", "closer", "representative", "rep", "appointment", "account executive"],
+    "title_exclude": ["senior", "sr.", "sr ", "manager", "director", "head of", "vp ", "vice president", "team lead", "german", "deutsch", "french", "français", "dutch", "nordic", "swedish", "danish", "norwegian", "finnish", "polish", "czech", "hungarian", "japanese", "korean", "mandarin", "chinese", "portuguese", "arabic", "turkish", "hebrew", "field sales", "door to door", "door-to-door", "d2d", "insurance agent", "real estate agent", "licensed", "intern", "internship", "unpaid", "outbound", "cold call", "cold calling", "cold caller", "canvass", "teleseller"],
+    "region_exclude": ["us only", "usa only", "u.s. only", "us-only", "us based", "us-based", "u.s.-based", "us residents", "us citizens", "united states only", "must reside", "must be located", "canada only", "north america only", "latam", "latin america", "south america", "mexico", "brazil", "colombia", "argentina", "philippines", "india", "pakistan", "egypt", "bangladesh", "nigeria", "kenya", "ghana", "sri lanka", "nepal", "vietnam", "indonesia", "malaysia", "australia", "new zealand", "apac", "asia", "singapore", "south africa", "middle east", "uae", "dubai", "saudi"]
   }
 ]
