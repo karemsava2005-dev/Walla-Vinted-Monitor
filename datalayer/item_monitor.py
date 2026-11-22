@@ -73,6 +73,9 @@ class ItemMonitor:
     def _jobs(self, d):
         self.indeed_domain = d.get('indeed_domain', 'www')
         self.remote = d.get('remote', True)
+        self.subito_region = d.get('subito_region', 'lazio')
+        self.subito_province = d.get('subito_province', 'roma')
+        self.subito_category = d.get('subito_category', 'usato')
         self.region_include = [w.lower() for w in d.get('region_include', [])]
         self.region_exclude = [w.lower() for w in d.get('region_exclude', [])]
         return self
