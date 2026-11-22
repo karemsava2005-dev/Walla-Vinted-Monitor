@@ -4,12 +4,15 @@ import html
 import json
 import logging
 import re
+import random
 import time
 from urllib.parse import urlencode
 
 import requests
 
 from datalayer.listing import Listing
+
+_LAST_LI = 0.0
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0 Safari/537.36")
@@ -60,13 +63,19 @@ class LinkedInClient:
              'f_TPR': 'r86400', 'sortBy': 'DD', 'start': '0'}   # posted in the last 24 h, newest first
         if getattr(item, 'remote', True):
             p['f_WT'] = '2'                                       # remote only
+        global _LAST_LI
         last = None
         for attempt in range(3):
+            # LinkedIn answers 429 when searches come back to back: keep ~12-20 s between requests.
+            wait = _LAST_LI + random.uniform(12, 20) - time.time()
+            if wait > 0:
+                time.sleep(wait)
             r = self.s.get(f"{self.URL}?{urlencode(p)}", timeout=20)
+            _LAST_LI = time.time()
             if r.status_code == 200:
                 return region_filter(item, self._parse(r.text), self.logger)
             last = r.status_code
-            time.sleep(3 * (attempt + 1))
+            time.sleep(20 * (attempt + 1))
         raise JobsError(f"LinkedIn answered HTTP {last} (429 = too many requests, 999 = blocked)")
 
     def _parse(self, text):
