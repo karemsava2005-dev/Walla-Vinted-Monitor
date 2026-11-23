@@ -17,11 +17,14 @@ from managers.worker import Worker
 
 
 def load_searches():
+    """searches.json in the repo is the main list (easy to edit). The SEARCHES_JSON secret is only a fallback."""
+    if os.path.exists('searches.json'):
+        with open('searches.json', encoding='utf-8') as f:
+            return json.load(f)
     raw = os.environ.get('SEARCHES_JSON', '').strip()
     if raw:
         return json.loads(raw)
-    with open('searches.json', encoding='utf-8') as f:
-        return json.load(f)
+    raise SystemExit("No searches found: add searches.json to the repo.")
 
 
 def resolve_locations(searches):
