@@ -106,6 +106,66 @@
     "title_exclude": ["cerco", "cercasi", "scambio", "compro", "stendino", "stendibiancheria", "stender per", "ricambi", "adesivi", "ganci per porta auto", "vetrina negozio"]
   },
   {
+    "id": "sb_lavagna",
+    "site": "subito",
+    "search_query": "lavagna bianca",
+    "subito_region": "lazio",
+    "subito_province": "roma",
+    "subito_category": "usato",
+    "min_price": "3",
+    "max_price": "40",
+    "title_must_include": ["lavagna", "whiteboard"],
+    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "ardesia", "gesso", "gessetti", "nera", "nero", "verde", "bambini", "bambino", "giocattolo", "gioco", "luminosa", "proiettore", "cavalletto pittura", "solo pennarelli", "pennarelli per", "cancellino", "adesivo", "pellicola"]
+  },
+  {
+    "id": "sb_whiteboard",
+    "site": "subito",
+    "search_query": "lavagna magnetica cancellabile",
+    "subito_region": "lazio",
+    "subito_province": "roma",
+    "subito_category": "usato",
+    "min_price": "3",
+    "max_price": "40",
+    "title_must_include": ["lavagna", "whiteboard"],
+    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "ardesia", "gesso", "gessetti", "nera", "nero", "verde", "bambini", "bambino", "giocattolo", "gioco", "luminosa", "proiettore", "cavalletto pittura", "solo pennarelli", "pennarelli per", "cancellino", "adesivo", "pellicola"]
+  },
+  {
+    "id": "sb_scaffale",
+    "site": "subito",
+    "search_query": "scaffale",
+    "subito_region": "lazio",
+    "subito_province": "roma",
+    "subito_category": "arredamento-casalinghi",
+    "min_price": "3",
+    "max_price": "40",
+    "title_must_include": ["scaffale", "scaffali", "scaffalatura", "libreria", "mensola", "mensole"],
+    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "frigo", "frigorifero", "auto", "furgone", "ricambi", "ricambio", "staffe", "solo staffe", "reggimensola", "acquario", "forno", "lavastoviglie", "pc", "scheda"]
+  },
+  {
+    "id": "sb_mensole",
+    "site": "subito",
+    "search_query": "mensole",
+    "subito_region": "lazio",
+    "subito_province": "roma",
+    "subito_category": "arredamento-casalinghi",
+    "min_price": "2",
+    "max_price": "30",
+    "title_must_include": ["mensola", "mensole", "scaffale", "scaffali"],
+    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "frigo", "frigorifero", "auto", "furgone", "ricambi", "ricambio", "staffe", "solo staffe", "reggimensola", "acquario", "forno", "lavastoviglie", "pc", "scheda"]
+  },
+  {
+    "id": "sb_scolapiatti",
+    "site": "subito",
+    "search_query": "scolapiatti",
+    "subito_region": "lazio",
+    "subito_province": "roma",
+    "subito_category": "arredamento-casalinghi",
+    "min_price": "1",
+    "max_price": "25",
+    "title_must_include": ["scolapiatti", "scola piatti", "scolastoviglie", "sgocciolatoio", "portaposate", "porta posate"],
+    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "lavastoviglie", "ricambi", "cestello", "cesto per"]
+  },
+  {
     "id": "li_setter_eu",
     "site": "linkedin",
     "search_query": "inbound appointment setter",
