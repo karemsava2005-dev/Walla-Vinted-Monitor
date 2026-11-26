@@ -3,6 +3,8 @@
 Subito uses bot protection; curl_cffi (Chrome fingerprint) is used when installed, plain requests otherwise.
 From data-centre servers like GitHub it may still be refused (HTTP 403)."""
 import json
+import random
+import time
 import logging
 import re
 from urllib.parse import urlencode
@@ -15,6 +17,9 @@ try:
 except ImportError:  # pragma: no cover
     import requests as creq
     _HAVE_CFFI = False
+
+
+_LAST = 0.0
 
 
 class SubitoError(Exception):
@@ -58,8 +63,13 @@ class SubitoClient:
         return self.BASE + path + '?' + urlencode(q)
 
     def search(self, item):
+        global _LAST
         url = self.build_url(item)
+        wait = _LAST + random.uniform(3, 6) - time.time()   # be gentle: a few seconds between searches
+        if wait > 0:
+            time.sleep(wait)
         r = self.s.get(url, timeout=25)
+        _LAST = time.time()
         if r.status_code != 200:
             raise SubitoError(f"Subito answered HTTP {r.status_code} (403 = blocked by bot protection)")
         m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', r.text, re.S)
