@@ -94,7 +94,35 @@ class LinkedInClient:
         return out
 
     def fetch_description(self, listing):
-        return listing.description
+        """Open the job's public page: full description + LinkedIn's criteria (seniority, type, industry)."""
+        global _LAST_LI
+        jid = listing.slug
+        for attempt in range(2):
+            wait = _LAST_LI + random.uniform(8, 14) - time.time()
+            if wait > 0:
+                time.sleep(wait)
+            try:
+                r = self.s.get(f"https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{jid}", timeout=20)
+            except requests.RequestException as e:
+                self.logger.warning(f"LinkedIn job page failed: {e}")
+                return listing.description
+            _LAST_LI = time.time()
+            if r.status_code == 200:
+                break
+            self.logger.warning(f"LinkedIn job page HTTP {r.status_code} for {jid}, retry {attempt + 1}/2")
+            time.sleep(20)
+        else:
+            return listing.description
+        t = r.text
+        desc = re.search(r'show-more-less-html__markup[^>]*>(.*?)</div>', t, re.S)
+        desc = _clean(re.sub(r'<br\s*/?>|</li>|</p>', '\n', desc.group(1))) if desc else ''
+        crit = {_clean(h): _clean(v) for h, v in re.findall(
+            r'description__job-criteria-subheader[^>]*>(.*?)</h3>.*?description__job-criteria-text[^>]*>(.*?)</span>', t, re.S)}
+        applicants = re.search(r'num-applicants__caption[^>]*>(.*?)</', t, re.S)
+        info = [crit.get('Employment type'), crit.get('Seniority level'), crit.get('Industries'),
+                _clean(applicants.group(1)) if applicants else None]
+        listing.location = " · ".join(x for x in [listing.location] + info if x and x != 'Not Applicable')
+        return re.sub(r'[ \t]+', ' ', desc)
 
     def close(self):
         self.s.close()
