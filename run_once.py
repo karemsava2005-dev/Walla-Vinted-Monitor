@@ -16,6 +16,36 @@ from managers.telegram_manager import TelegramManager
 from managers.worker import Worker
 
 
+class OnceNotifier:
+    """Wraps Telegram so a listing found by several searches is only sent once (remembered across runs)."""
+    PATH = os.path.join('data', 'notified.json')
+
+    def __init__(self, telegram):
+        self.telegram = telegram
+        try:
+            with open(self.PATH, encoding='utf-8') as f:
+                self.ids = json.load(f)
+        except (OSError, ValueError):
+            self.ids = []
+        self._set = set(self.ids)
+
+    def send_listing(self, listing, search_name=None):
+        if listing.id in self._set:
+            logging.info(f"skip duplicate (already sent by another search): {listing.title}")
+            return
+        self.telegram.send_listing(listing, search_name)
+        self._set.add(listing.id)
+        self.ids.append(listing.id)
+
+    def save(self):
+        os.makedirs('data', exist_ok=True)
+        with open(self.PATH, 'w', encoding='utf-8') as f:
+            json.dump(self.ids[-5000:], f)
+
+    def __getattr__(self, name):
+        return getattr(self.telegram, name)
+
+
 def load_searches():
     """searches.json in the repo is the main list (easy to edit). The SEARCHES_JSON secret is only a fallback."""
     if os.path.exists('searches.json'):
@@ -63,6 +93,7 @@ def main():
     resolve_locations(searches)
     token, channel = os.environ.get('TELEGRAM_TOKEN'), os.environ.get('TELEGRAM_CHANNEL')
     telegram = TelegramManager(token, channel) if token and channel else None
+    notifier = OnceNotifier(telegram) if telegram else None
     if not telegram:
         logging.warning("No Telegram settings found: alerts will only appear in this log.")
 
@@ -89,7 +120,7 @@ def main():
 
     failures = 0
     for s in searches:
-        w = Worker(s, telegram=telegram, data_dir='data')
+        w = Worker(s, telegram=notifier, data_dir='data')
         client = None
         try:
             client = make_client(w._item)
@@ -103,6 +134,8 @@ def main():
                     client.close()
                 except Exception:
                     pass
+    if notifier:
+        notifier.save()
     # Only fail the run if every search failed, so you get GitHub's failure email for real outages.
     sys.exit(1 if searches and failures == len(searches) else 0)
 

@@ -66,7 +66,7 @@
     "min_price": "3",
     "max_price": "60",
     "title_must_include": ["pensile", "sospeso", "da parete", "a muro", "sopra wc", "sopra water", "sopra il wc"],
-    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione", "wc", "water"]
+    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione", "wc", "water", "mensola", "mensole"]
   },
   {
     "id": "sb_sopra_wc",
@@ -78,7 +78,7 @@
     "min_price": "3",
     "max_price": "60",
     "title_must_include": ["sopra wc", "sopra water", "sopra il wc", "sopra il water", "sopra vaso", "salvaspazio wc", "pensile"],
-    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione"]
+    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione", "mensola", "mensole"]
   },
   {
     "id": "sb_appendiabiti",
