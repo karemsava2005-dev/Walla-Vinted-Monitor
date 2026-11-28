@@ -1,17 +1,6 @@
 [
   {
     "site": "subito",
-    "search_query": "notebook",
-    "min_price": "15",
-    "max_price": "100",
-    "title_exclude": ["cerco", "cercasi", "scambio", "custodia", "borsa", "zaino", "sleeve", "cover", "caricabatterie", "caricatore", "alimentatore", "supporto", "stand per", "tablet", "ipad", "cavo", "adattatore", "ventola", "dock", "cooling", "raffreddamento", "condizionatore", "climatizzatore", "ventilatore", "lavatrice", "frigo", "radio", "altoparlante", "speaker", "proiettore", "lampada", "power bank", "powerbank", "stampante", "scheda madre", "cerniere", "bagno", "wc", "aspirapolvere", "fotocopiatrice", "ps4", "ps5", "console", "monitor", "desktop", "pc fisso", "fisso", "all in one", "quaderno", "quaderni", "taccuino", "taccuini", "agenda", "diario", "diari", "block notes", "blocco", "moleskine", "journal", "bullet", "sketchbook", "album", "libro", "libri", "penna", "penne", "matite", "cartoleria", "planner", "rubrica", "fogli", "pagine", "quadretti", "righe", "ssd", "hdd", "ram ", "memoria", "hard disk", "scheda video"],
-    "title_must_include": ["notebook", "portatile", "laptop", "macbook", "thinkpad", "chromebook", "acer", "asus", "lenovo", "hp ", "dell", "latitude", "toshiba", "samsung", "msi", "huawei", "matebook", "surface", "vaio", "fujitsu", "ideapad", "aspire", "pavilion", "elitebook", "probook", "inspiron", "vivobook", "zenbook"],
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "informatica"
-  },
-  {
-    "site": "subito",
     "search_query": "portatile",
     "min_price": "15",
     "max_price": "100",
@@ -43,42 +32,6 @@
     "subito_region": "lazio",
     "subito_province": "roma",
     "subito_category": "arredamento-casalinghi"
-  },
-  {
-    "site": "subito",
-    "search_query": "sedia gaming",
-    "min_price": "3",
-    "max_price": "40",
-    "title_exclude": ["cerco", "cercasi", "scambio", "sgabello", "sgabelli", "seggiolone", "bambini", "bambino", "bimbi", "pranzo", "cucina", "sala", "giardino", "dondolo", "rotelle per", "ruote per", "set ruote", "ricambio", "ricambi", "cuscino", "tappetino", "copri", "rivestimento", "pistone", "poltrona relax", "sdraio", "pouf", "regista", "carrozzina", "passeggino", "seggiolino", "dentista", "parrucchiere", "barbiere", "trucco"],
-    "description_exclude": ["senza ruote", "senza rotelle", "ruote mancanti", "rotelle mancanti", "mancano", "manca", "rotta", "rotto", "rotte", "da riparare", "non funziona", "non si alza", "pistone rotto", "cedimento"],
-    "title_must_include": ["sedia", "sedie", "poltrona", "poltroncina"],
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "arredamento-casalinghi"
-  },
-  {
-    "id": "sb_pensile",
-    "site": "subito",
-    "search_query": "pensile bagno",
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "arredamento-casalinghi",
-    "min_price": "3",
-    "max_price": "60",
-    "title_must_include": ["pensile", "sospeso", "da parete", "a muro", "sopra wc", "sopra water", "sopra il wc"],
-    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione", "wc", "water", "mensola", "mensole"]
-  },
-  {
-    "id": "sb_sopra_wc",
-    "site": "subito",
-    "search_query": "mobile sopra wc",
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "arredamento-casalinghi",
-    "min_price": "3",
-    "max_price": "60",
-    "title_must_include": ["sopra wc", "sopra water", "sopra il wc", "sopra il water", "sopra vaso", "salvaspazio wc", "pensile"],
-    "title_exclude": ["lavabo", "lavandino", "lavello", "sottolavabo", "sotto lavabo", "lavamani", "consolle", "top", "base", "colonna", "a terra", "da terra", "piatto doccia", "box doccia", "cabina doccia", "rubinetto", "miscelatore", "sanitari", "bidet", "vasca", "tappeto", "accappatoio", "asciugamani", "soffione", "sifone", "maniglie", "cerniere", "cerco", "cercasi", "scambio", "compro", "completo", "arredo bagno completo", "composizione", "mensola", "mensole"]
   },
   {
     "id": "sb_appendiabiti",
@@ -129,18 +82,6 @@
     "title_exclude": ["cerco", "cercasi", "scambio", "compro", "frigo", "frigorifero", "auto", "furgone", "ricambi", "ricambio", "staffe", "solo staffe", "reggimensola", "acquario", "forno", "lavastoviglie", "pc", "scheda"]
   },
   {
-    "id": "sb_mensole",
-    "site": "subito",
-    "search_query": "mensole",
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "arredamento-casalinghi",
-    "min_price": "2",
-    "max_price": "30",
-    "title_must_include": ["mensola", "mensole", "scaffale", "scaffali"],
-    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "frigo", "frigorifero", "auto", "furgone", "ricambi", "ricambio", "staffe", "solo staffe", "reggimensola", "acquario", "forno", "lavastoviglie", "pc", "scheda"]
-  },
-  {
     "id": "sb_scolapiatti",
     "site": "subito",
     "search_query": "scolapiatti",
@@ -151,19 +92,6 @@
     "max_price": "25",
     "title_must_include": ["scolapiatti", "scola piatti", "scolastoviglie", "sgocciolatoio", "portaposate", "porta posate"],
     "title_exclude": ["cerco", "cercasi", "scambio", "compro", "lavastoviglie", "ricambi", "cestello", "cesto per"]
-  },
-  {
-    "id": "sb_3ds",
-    "site": "subito",
-    "search_query": "nintendo 3ds",
-    "subito_region": "lazio",
-    "subito_province": "roma",
-    "subito_category": "usato",
-    "min_price": "35",
-    "max_price": "120",
-    "title_must_include": ["3ds", "2ds"],
-    "title_exclude": ["cerco", "cercasi", "scambio", "compro", "permuta", "rotto", "rotta", "non funzionante", "non funziona", "guasto", "difettoso", "per ricambi", "per pezzi", "ricambi", "ricambio", "scheda madre", "bloccato", "bloccata", "icloud", "da riparare", "danneggiato", "crepato", "schermo rotto", "display rotto", "vetro rotto", "replica", "copia", "finto", "fake", "cover", "custodia", "pellicola", "vetro temperato", "caricatore", "caricabatterie", "cavo", "alimentatore", "scatola", "box vuota", "solo scatola", "cuffie", "auricolari", "airpods", "supporto", "base di ricarica", "skin", "adesivo", "batteria", "display", "schermo", "fotocamera", "tasto", "cassa", "stand", "borsa", "zaino", "gioco 3ds", "gioco nintendo", "giochi per", "videogioco", "solo gioco", "cartuccia", "pennino", "gioco ps", "gioco switch", "gioco xbox", "solo giochi", "videogiochi per", "pokemon", "pokémon", "mario", "zelda", "kirby", "animal crossing", "luigi", "yoshi", "donkey kong", "fire emblem", "monster hunter", "sonic", "lego", "kingdom hearts", "layton", "metroid", "smash", "kart", "party", "pikmin", "star fox", "picross", "tomodachi", "nintendogs", "inazuma", "yo-kai", "yokai", "xenoblade", "bravely", "persona", "resident evil", "fifa", "pes", "minecraft", "dragon quest", "final fantasy", "professor", "just dance", "sims", "harry potter", "cars", "disney", "spyro", "crash", "rayman", "puzzle", "brain training", "new style boutique", "cooking mama", "3d –", "3d -", "edizione", "videogame", "gioco", "giochi 3ds"],
-    "description_exclude": ["non funziona", "non funzionante", "rotto", "schermo rotto", "display rotto", "vetro rotto", "icloud bloccato", "bloccato icloud", "account bloccato", "face id non funziona", "faceid non funziona", "per ricambi", "per pezzi", "da riparare", "non si accende", "difettoso", "solo il gioco", "solo gioco", "solo cartuccia", "cartuccia originale", "gioco originale", "il gioco è", "il gioco funziona", "gioco in ottime", "console non inclusa", "console esclusa", "non include la console", "senza console", "no console"]
   },
   {
     "id": "sb_regalo",
